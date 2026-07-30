@@ -1,0 +1,76 @@
+.mobile-blocker {
+  position: fixed; inset: 0; background: #000; color: #fff; display: none;
+  align-items: center; justify-content: center; text-align: center; padding: 40px;
+  z-index: 9999999; font-family: "OTF Obys NG", sans-serif;
+  font-size: 13px; line-height: 1.2; letter-spacing: -0.01em;
+}
+@media (max-width: 1199px) {
+  .mobile-blocker { display: flex; }
+  body { overflow: hidden !important; }
+}
+.mb-dot {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 4px; height: 4px;
+  background: white;
+  margin: -2px 0 0 -2px;
+  pointer-events: none;
+  animation-duration: 6.5s;
+  animation-iteration-count: infinite;
+}
+.mb-dot-0 { animation-name: mbDot0; }
+.mb-dot-1 { animation-name: mbDot1; }
+.mb-dot-2 { animation-name: mbDot2; }
+.mb-dot-3 { animation-name: mbDot3; }
+@keyframes mbDot0 {
+  0%    { transform: translate(-26px,-57px); animation-timing-function: ease-in-out; }
+  10.8% { transform: translate(calc(-50vw + 12px),-57px); }
+  20%   { transform: translate(calc(-50vw + 12px),-57px); animation-timing-function: ease-in-out; }
+  30.8% { transform: translate(calc(-50vw + 12px),calc(-50vh + 12px)); }
+  40%   { transform: translate(calc(-50vw + 12px),calc(-50vh + 12px)); animation-timing-function: ease-in-out; }
+  50.8% { transform: translate(calc(50vw - 12px),calc(-50vh + 12px)); }
+  60%   { transform: translate(calc(50vw - 12px),calc(-50vh + 12px)); animation-timing-function: ease-in-out; }
+  70.8% { transform: translate(calc(50vw - 12px),-57px); }
+  80%   { transform: translate(calc(50vw - 12px),-57px); animation-timing-function: ease-in-out; }
+  90.8% { transform: translate(26px,-57px); }
+  100%  { transform: translate(26px,-57px); }
+}
+@keyframes mbDot1 {
+  0%    { transform: translate(26px,-57px); animation-timing-function: ease-in-out; }
+  10.8% { transform: translate(calc(50vw - 12px),-57px); }
+  20%   { transform: translate(calc(50vw - 12px),-57px); animation-timing-function: ease-in-out; }
+  30.8% { transform: translate(calc(50vw - 12px),calc(-50vh + 12px)); }
+  40%   { transform: translate(calc(50vw - 12px),calc(-50vh + 12px)); animation-timing-function: ease-in-out; }
+  50.8% { transform: translate(calc(-50vw + 12px),calc(-50vh + 12px)); }
+  60%   { transform: translate(calc(-50vw + 12px),calc(-50vh + 12px)); animation-timing-function: ease-in-out; }
+  70.8% { transform: translate(calc(-50vw + 12px),-57px); }
+  80%   { transform: translate(calc(-50vw + 12px),-57px); animation-timing-function: ease-in-out; }
+  90.8% { transform: translate(-26px,-57px); }
+  100%  { transform: translate(-26px,-57px); }
+}
+@keyframes mbDot2 {
+  0%    { transform: translate(-26px,57px); animation-timing-function: ease-in-out; }
+  10.8% { transform: translate(calc(-50vw + 12px),57px); }
+  20%   { transform: translate(calc(-50vw + 12px),57px); animation-timing-function: ease-in-out; }
+  30.8% { transform: translate(calc(-50vw + 12px),calc(50vh - 12px)); }
+  40%   { transform: translate(calc(-50vw + 12px),calc(50vh - 12px)); animation-timing-function: ease-in-out; }
+  50.8% { transform: translate(calc(50vw - 12px),calc(50vh - 12px)); }
+  60%   { transform: translate(calc(50vw - 12px),calc(50vh - 12px)); animation-timing-function: ease-in-out; }
+  70.8% { transform: translate(calc(50vw - 12px),57px); }
+  80%   { transform: translate(calc(50vw - 12px),57px); animation-timing-function: ease-in-out; }
+  90.8% { transform: translate(26px,57px); }
+  100%  { transform: translate(26px,57px); }
+}
+@keyframes mbDot3 {
+  0%    { transform: translate(26px,57px); animation-timing-function: ease-in-out; }
+  10.8% { transform: translate(calc(50vw - 12px),57px); }
+  20%   { transform: translate(calc(50vw - 12px),57px); animation-timing-function: ease-in-out; }
+  30.8% { transform: translate(calc(50vw - 12px),calc(50vh - 12px)); }
+  40%   { transform: translate(calc(50vw - 12px),calc(50vh - 12px)); animation-timing-function: ease-in-out; }
+  50.8% { transform: translate(calc(-50vw + 12px),calc(50vh - 12px)); }
+  60%   { transform: translate(calc(-50vw + 12px),calc(50vh - 12px)); animation-timing-function: ease-in-out; }
+  70.8% { transform: translate(calc(-50vw + 12px),57px); }
+  80%   { transform: translate(calc(-50vw + 12px),57px); animation-timing-function: ease-in-out; }
+  90.8% { transform: translate(-26px,57px); }
+  100%  { transform: translate(-26px,57px); }
+}

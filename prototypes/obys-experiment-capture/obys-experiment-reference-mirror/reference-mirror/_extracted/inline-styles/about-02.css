@@ -1,0 +1,23 @@
+#obys-rotational-embed, #obys-rotational-embed * , #obys-rotational-embed *::before, #obys-rotational-embed *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    #obys-rotational-embed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    #obys-rotational-embed .tool-canvas-area {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #obys-rotational-embed canvas { display: block; background: transparent; }
+
+  
+  #obys-rotational-embed canvas { width: 100% !important; height: 100% !important; }

@@ -1,0 +1,219 @@
+#obys-fluid-gallery {
+ width: 100%;
+ height: 100vh;
+ min-height: 600px;
+ position: relative;
+ overflow: hidden;
+ background: transparent;
+}
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ html, body {
+ width: 100%;
+ height: 100%;
+ background: transparent;
+ overflow: hidden;
+ font-family: inherit;
+ }
+ .tool-canvas-area {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ overflow: hidden;
+ }
+ canvas { display: block; background: transparent; }
+.focus-overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.05);
+ backdrop-filter: blur(0px);
+ opacity: 0;
+ pointer-events: none;
+ transition: opacity 0.6s ease, backdrop-filter 0.6s ease;
+ z-index: 100;
+}
+.focus-panel {
+ position: absolute;
+ top: 0;
+ right: 0;
+ width: 50%;
+ height: 100%;
+ background: rgba(255, 255, 255, 0.1);
+ backdrop-filter: blur(30px);
+ -webkit-backdrop-filter: blur(30px);
+ transform: translateX(100%);
+ transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+ z-index: 101;
+ border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+.focus-image-container {
+ position: absolute;
+ top: 50%;
+ left: 75%;
+ transform: translate(-50%, -50%);
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ opacity: 0;
+ transition: opacity 0.6s ease 0.2s;
+ z-index: 102;
+ pointer-events: none;
+ width: fit-content;
+}
+.focus-active .focus-overlay {
+ opacity: 1;
+ pointer-events: auto;
+}
+.focus-active .focus-panel {
+ transform: translateX(0);
+}
+.focus-active .focus-image-container {
+ opacity: 1;
+ pointer-events: auto;
+}
+.focus-image-container img {
+ height: 33vh;
+ max-height: 33vh;
+ width: auto;
+ max-width: 40vw;
+ object-fit: contain;
+ object-position: center;
+ display: block;
+ background: none;
+ padding: 0;
+ border: none;
+ box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+.focus-info {
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: baseline;
+ margin-top: 10px;
+ color: black;
+ font-size: 12px;
+ font-weight: 500;
+ pointer-events: auto;
+}
+.focus-link {
+ color: black;
+ text-decoration: none;
+ cursor: pointer;
+}
+.focus-link:hover {
+ text-decoration: underline;
+}
+
+.custom-cursor {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 10px;
+ height: 10px;
+ background: black;
+ border-radius: 50%;
+ pointer-events: none;
+ z-index: 9999;
+ transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+ height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+ background 0.3s ease,
+ transform 0.1s ease-out;
+}
+.custom-cursor.is-cross {
+ background: transparent;
+ width: 16px;
+ height: 16px;
+}
+.custom-cursor.is-cross::before,
+.custom-cursor.is-cross::after {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 100%;
+ height: 1px;
+ background: black;
+ transform: translate(-50%, -50%) rotate(45deg);
+}
+.custom-cursor.is-cross::after {
+ transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.editorial-title-container {
+ position: absolute;
+ bottom: 38px;
+ left: 50%;
+ transform: translateX(-50%);
+ pointer-events: none;
+ z-index: 50;
+ width: 100%;
+ padding: 0 24px;
+ display: flex;
+ justify-content: center;
+ overflow: visible;
+}
+.editorial-title {
+ font-size: 94px;
+ line-height: 0.86;
+ letter-spacing: -0.06em;
+ font-weight: 500;
+ color: black;
+ text-align: center;
+ overflow: visible;
+ display: flex;
+ justify-content: center;
+ text-transform: uppercase;
+ white-space: nowrap;
+}
+.editorial-title .char {
+ display: inline-block;
+ transform: translateY(100%);
+ opacity: 0;
+}
+
+.tool-switcher {
+ position: absolute;
+ bottom: 11px;
+ left: 50%;
+ transform: translateX(-50%);
+ z-index: 60;
+ font-size: 11px;
+ letter-spacing: -0.01em;
+ font-weight: 500;
+ color: black;
+ white-space: nowrap;
+ transition: opacity 0.4s ease, transform 0.4s ease;
+ display: flex;
+ align-items: baseline;
+}
+.switcher-item {
+ cursor: pointer;
+}
+.switcher-comma {
+ margin-right: 0.3em;
+}
+.switcher-underline {
+ position: absolute;
+ bottom: 1px;
+ height: 1px;
+ background: black;
+ transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+ 
+#obys-fluid-gallery canvas { width: 100% !important; height: 100% !important; display: block; }
+
+#obys-fluid-gallery,
+#obys-fluid-gallery .editorial-title,
+#obys-fluid-gallery .editorial-title .char,
+#obys-fluid-gallery .focus-info,
+#obys-fluid-gallery .focus-link,
+#obys-fluid-gallery .tool-switcher,
+#obys-fluid-gallery .switcher-item,
+#obys-fluid-gallery .switcher-comma {
+ font-family: "OTF Obys NG", sans-serif !important;
+}

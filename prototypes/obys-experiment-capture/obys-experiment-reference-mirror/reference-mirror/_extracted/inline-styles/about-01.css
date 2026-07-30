@@ -1,0 +1,9 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+.page-wrapper,
+.main-frame {
+  overflow-x: hidden;
+}

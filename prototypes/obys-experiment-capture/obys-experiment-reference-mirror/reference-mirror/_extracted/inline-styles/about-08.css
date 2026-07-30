@@ -1,0 +1,21 @@
+.side-hover-layer {
+  position: fixed;
+  left: calc(90px + 8 * (100vw - 130px) / 12);
+  width: calc((100vw - 130px) / 12);
+  pointer-events: none;
+  overflow: hidden;
+  clip-path: inset(50% 50% 50% 50%);
+  top: 0;
+}
+.side-hover-layer img {
+  width: 100%;
+  aspect-ratio: 1440 / 1800;
+  object-fit: cover;
+  display: block;
+}
+.side-hover-line {
+  position: absolute;
+  background: black;
+  pointer-events: none;
+  z-index: 3;
+}
