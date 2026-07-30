@@ -5,7 +5,7 @@
     "about.html"
   ],
   "file_count": 159,
-  "total_bytes": 17548675,
+  "total_bytes": 17538528,
   "failures": [
     [
       "https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.42/lenis.min.js",
@@ -16,16 +16,16 @@
     {
       "url": "https://experiment.obys.agency/about",
       "local": "about.html",
-      "bytes": 108646,
+      "bytes": 100196,
       "content_type": "text/html",
-      "sha256": "c3927e8e0a590a9c83fd4044fc65e76eba8c3dd5e371c848d3c8d1810dcedffa"
+      "sha256": "8dd8542a902ae94ba64fcd630f0bbff6547fc3273a42284e7a6e6935cce931e2"
     },
     {
       "url": "https://cdn.prod.website-files.com/6a144ba0b441780cf00851e8/css/obys-experiment-space.webflow.shared.1660b1b90.css",
       "local": "assets/css/main.css",
-      "bytes": 69372,
+      "bytes": 71375,
       "content_type": "text/css",
-      "sha256": "c87479b7849394929553ece4f6399a4f7462978b7b6cca9ac2bcf823ba96fa2f"
+      "sha256": "9e8ff164c384d3c8370c0ec408bf460df7a70d04f51c67dcc255ed07cb261c2e"
     },
     {
       "url": "https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/011f8c07c_images_28_mpcm73f3.jpg",
@@ -1122,9 +1122,9 @@
     {
       "url": "https://experiment.obys.agency/",
       "local": "index.html",
-      "bytes": 68193,
+      "bytes": 64493,
       "content_type": "text/html",
-      "sha256": "68efc6e21537884a4262e020df6cc6c0bad31d7c02c286f70cf62a85b89dc5fa"
+      "sha256": "eb921c39fcb079df42581b4f57005fc97e7de497eb5c1b0270e194e08e0e2620"
     }
   ],
   "known_divergences": [

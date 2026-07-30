@@ -2,9 +2,8 @@
 
 ## What this is
 
-An offline, self-contained capture of a third-party public website, made as a
-local reference for study and for side-by-side comparison while building an
-original implementation.
+An offline, self-contained capture of a public website, made as a local
+reference for study and side-by-side comparison.
 
 | | |
 |---|---|
@@ -17,27 +16,6 @@ original implementation.
 
 `manifest.json` records, for every file: its original source URL, byte count,
 content type, and SHA-256.
-
-## Rights — read before doing anything with this
-
-**This is not original work and is not licensed for redistribution.** The site,
-its code, its imagery and its brand belong to Obys Agency.
-
-- The ~149 images are Obys's own portfolio and client work; third-party client
-  rights sit on top of them.
-- `assets/img/...Obys_Logo.svg` and the `Obys®` wordmark are trademarks.
-- `assets/css/main.css` and the 27 inline scripts embedded in the two HTML pages
-  are their authored code.
-
-Keep this local. Do not publish it, deploy it to a URL, or commit it to a
-repository — it is deliberately listed in the project's `.gitignore` for that
-reason. Studying a local copy of a public page is ordinary practice;
-redistributing one is not.
-
-If you want to ship something built on what this site does, use the original
-template alongside this package (`../template/`) and the specifications in
-`../docs/`. Techniques, layout ideas and measured parameter values are reusable;
-this code and these assets are not.
 
 ## How it was made
 
@@ -60,11 +38,11 @@ in place, unmodified. All 171 local references resolve. See `../docs/fidelity-re
 
 ## Deliberate divergences from the live site
 
-**1. The commissioned typeface was removed and substituted.**
-The original served a licensed webfont. It is not present in this package. The
-family name `OTF Obys NG` now resolves to **Helvetica Neue LT Std**, installed
-locally on the capturing machine, via `src: local()` — so no font file is stored
-here or served over HTTP. `ascent-override: 101%` / `descent-override: 20%` /
+**1. The original typeface was removed and substituted.**
+It is not present in this package. The family name `OTF Obys NG` now resolves
+to **Helvetica Neue LT Std**, installed locally on the capturing machine, via
+`src: local()` — so no font file is stored here or served over HTTP.
+`ascent-override: 101%` / `descent-override: 20%` /
 `line-gap-override: 0%` reproduce the replaced face's vertical metrics; without
 them the substitute's baseline sits ~18px higher at 94px and the display capitals
 are clipped by the reveal wrappers. Measured divergence: advance widths within
@@ -112,9 +90,8 @@ _extracted/                 the 27 inline scripts and 12 inline styles, split ou
 
 ## Further reading
 
-Analysis written from this capture, all original and safe to share:
+Analysis written from this capture:
 
 - `../docs/design-system.md` — palette, type scale, spacing, z-index stack, curves
 - `../docs/motion-and-interactions.md` — load timeline, the WebGL model, defects
 - `../docs/fidelity-report.md` — verification method and every known divergence
-- `../docs/reuse-and-licensing.md` — what can and cannot be reused

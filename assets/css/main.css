@@ -2056,13 +2056,12 @@ textarea.w-input, textarea.w-select {
 /* ---------------------------------------------------------------------------
    FONT SUBSTITUTION (local reference copy)
 
-   The source served a commissioned typeface as a webfont. It has been replaced
-   with Helvetica Neue LT Std, licensed and installed on this machine.
+   The source typeface has been replaced with Helvetica Neue LT Std installed
+   on this machine.
 
    src uses local() only, so no font file is copied into this project and none
    is served over HTTP -- the browser resolves the installed desktop font by
-   name. A desktop licence covers that; it does not cover webfont embedding,
-   which is exactly why there is no url() here.
+   name.
 
    The family name is unchanged so all 47 existing references still resolve.
    Weights 500 and 700 are registered because a few selectors in this stylesheet

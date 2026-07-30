@@ -34,19 +34,14 @@ switches between four arrangements.
 
 ## Read this before relying on it
 
-**1. It is not yours to publish.** The code, imagery and brand belong to Obys
-Agency. This is a local reference — keep it local. It's excluded from the
-project's git history for that reason, archives included. Full detail in
-[PROVENANCE.md](PROVENANCE.md).
-
-**2. The type is machine-dependent.** The original's commissioned typeface is not
+**1. The type is machine-dependent.** The original typeface is not
 in this package. Text resolves to **Helvetica Neue LT Std** from the local font
 install, via `src: local()` — so no font file is stored or served here. On a
 machine without that family, display type falls back to Arial and the 94px
-setting will look wrong. Not a defect; it's what keeps a licensed font out of the
-package.
+setting will look wrong. Not a defect; it's what keeps the original font out of
+the package.
 
-**3. One upstream bug is reproduced on purpose.** `assets/js/vendor/lenis.min.js`
+**2. One upstream bug is reproduced on purpose.** `assets/js/vendor/lenis.min.js`
 is deliberately absent so it returns 404, exactly as it does on the live site —
 which is why the real about page has no smooth scrolling either. A working copy
 sits unwired in `assets/js/vendor/_optional/`; move it up one directory to opt in
@@ -108,8 +103,6 @@ source repo:
 | Palette, type scale, spacing, z-index stack, easing curves | `docs/design-system.md` |
 | Load timeline, the WebGL model, confirmed production defects | `docs/motion-and-interactions.md` |
 | Verification method and every known divergence | `docs/fidelity-report.md` |
-| What can and cannot be reused, and how to substitute the type | `docs/reuse-and-licensing.md` |
 | Something you can actually ship | `template/` — original code, same experience, driven by one config file |
 
-Those four documents are original analysis written from this capture, and unlike
-the mirror itself they're safe to share.
+Those documents contain analysis written from this capture.
