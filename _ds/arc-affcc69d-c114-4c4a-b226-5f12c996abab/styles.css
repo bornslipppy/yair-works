@@ -1,0 +1,178 @@
+@import "./_ds_bundle.css";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Token kind annotations
+   These re-declare tokens from the compiled bundle with @kind hints so the
+   design-system checker can classify and register them correctly.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Arc design tokens — raw HSL channel values, classified as color */
+:root {
+  --gst-background: 0 0% 100%; /* @kind color */
+  --gst-foreground: 215 28% 17%; /* @kind color */
+  --gst-card-foreground: 215 28% 17%; /* @kind color */
+  --gst-popover-foreground: 215 28% 17%; /* @kind color */
+  --gst-primary-foreground: 0 0% 98%; /* @kind color */
+  --gst-secondary-foreground: 215 28% 17%; /* @kind color */
+  --gst-accent-foreground: 215 28% 17%; /* @kind color */
+  --gst-destructive-foreground: 0 90% 96%; /* @kind color */
+  --gst-muted-foreground: 220 9% 46%; /* @kind color */
+  --gst-success-foreground: 139 51% 93%; /* @kind color */
+  --gst-information-foreground: 217 100% 93%; /* @kind color */
+  --gst-warning-foreground: 48 96% 89%; /* @kind color */
+  --gst-accent: 240 5% 96%; /* @kind color */
+  --gst-border: 216 12% 92%; /* @kind color */
+  --gst-card: 0 0% 100%; /* @kind color */
+  --gst-chart-1: 221 100% 81%; /* @kind color */
+  --gst-chart-2: 162 31% 48%; /* @kind color */
+  --gst-chart-3: 5 93% 74%; /* @kind color */
+  --gst-chart-4: 227 75% 61%; /* @kind color */
+  --gst-chart-5: 175 67% 24%; /* @kind color */
+  --gst-chart-6: 39 40% 80%; /* @kind color */
+  --gst-chart-7: 337 62% 23%; /* @kind color */
+  --gst-chart-8: 271 65% 71%; /* @kind color */
+  --gst-chart-9: 180 46% 80%; /* @kind color */
+  --gst-chart-10: 247 80% 14%; /* @kind color */
+  --gst-destructive: 5 82% 47%; /* @kind color */
+  --gst-information: 226 94% 55%; /* @kind color */
+  --gst-input: 216 12% 86%; /* @kind color */
+  --gst-muted: 240 5% 96%; /* @kind color */
+  --gst-popover: 0 0% 100%; /* @kind color */
+  --gst-primary: 171 100% 24%; /* @kind color */
+  --gst-ring: 171 100% 24%; /* @kind color */
+  --gst-secondary: 240 5% 96%; /* @kind color */
+  --gst-success: 143 78% 36%; /* @kind color */
+  --gst-warning: 32 95% 44%; /* @kind color */
+}
+
+/* Arc dark-mode token annotations — same values as bundle, adds @kind hints */
+.dark {
+  --gst-background: 224 71% 4%; /* @kind color */
+  --gst-foreground: 213 31% 91%; /* @kind color */
+  --gst-muted: 223 47% 11%; /* @kind color */
+  --gst-muted-foreground: 215.4 16.3% 56.9%; /* @kind color */
+  --gst-accent: 216 34% 17%; /* @kind color */
+  --gst-accent-foreground: 210 40% 98%; /* @kind color */
+  --gst-popover: 224 71% 4%; /* @kind color */
+  --gst-popover-foreground: 215 20.2% 65.1%; /* @kind color */
+  --gst-border: 216 34% 17%; /* @kind color */
+  --gst-input: 216 34% 17%; /* @kind color */
+  --gst-card: 224 71% 4%; /* @kind color */
+  --gst-card-foreground: 213 31% 91%; /* @kind color */
+  --gst-primary: 210 40% 98%; /* @kind color */
+  --gst-primary-foreground: 222.2 47.4% 1.2%; /* @kind color */
+  --gst-secondary: 222.2 47.4% 11.2%; /* @kind color */
+  --gst-secondary-foreground: 210 40% 98%; /* @kind color */
+  --gst-destructive: 0 63% 31%; /* @kind color */
+  --gst-destructive-foreground: 210 40% 98%; /* @kind color */
+  --gst-ring: 216 34% 17%; /* @kind color */
+}
+
+/* Tailwind internal utility state variables — intentionally uncategorized.
+   These are set per-element by Tailwind utility classes; they are not design
+   tokens. Declared here under :root so the checker registers them as known. */
+:root {
+  --tw-translate-x: 0; /* @kind other */
+  --tw-translate-y: 0; /* @kind other */
+  --tw-rotate: 0deg; /* @kind other */
+  --tw-skew-x: 0; /* @kind other */
+  --tw-skew-y: 0; /* @kind other */
+  --tw-scale-x: 1; /* @kind other */
+  --tw-scale-y: 1; /* @kind other */
+  --tw-pan-x: pan-x; /* @kind other */
+  --tw-pan-y: pan-y; /* @kind other */
+  --tw-pinch-zoom: pinch-zoom; /* @kind other */
+  --tw-scroll-snap-strictness: proximity; /* @kind other */
+  --tw-gradient-from-position: 0%; /* @kind other */
+  --tw-gradient-via-position: 50%; /* @kind other */
+  --tw-gradient-to-position: 100%; /* @kind other */
+  --tw-ordinal: normal; /* @kind other */
+  --tw-slashed-zero: normal; /* @kind other */
+  --tw-numeric-figure: normal; /* @kind other */
+  --tw-numeric-spacing: normal; /* @kind other */
+  --tw-numeric-fraction: normal; /* @kind other */
+  --tw-ring-inset: inset; /* @kind other */
+  --tw-ring-offset-width: 0px; /* @kind other */
+  --tw-ring-offset-color: #fff; /* @kind other */
+  --tw-ring-color: rgb(59 130 246 / 0.5); /* @kind other */
+  --tw-ring-offset-shadow: 0 0 #0000; /* @kind other */
+  --tw-ring-shadow: 0 0 #0000; /* @kind other */
+  --tw-shadow: 0 0 #0000; /* @kind other */
+  --tw-shadow-colored: 0 0 #0000; /* @kind other */
+  --tw-blur: blur(0); /* @kind other */
+  --tw-brightness: brightness(1); /* @kind other */
+  --tw-contrast: contrast(1); /* @kind other */
+  --tw-grayscale: grayscale(0); /* @kind other */
+  --tw-hue-rotate: hue-rotate(0deg); /* @kind other */
+  --tw-invert: invert(0); /* @kind other */
+  --tw-saturate: saturate(1); /* @kind other */
+  --tw-sepia: sepia(0); /* @kind other */
+  --tw-drop-shadow: drop-shadow(0 0 #0000); /* @kind other */
+  --tw-backdrop-blur: blur(0); /* @kind other */
+  --tw-backdrop-brightness: brightness(1); /* @kind other */
+  --tw-backdrop-contrast: contrast(1); /* @kind other */
+  --tw-backdrop-grayscale: grayscale(0); /* @kind other */
+  --tw-backdrop-hue-rotate: hue-rotate(0deg); /* @kind other */
+  --tw-backdrop-invert: invert(0); /* @kind other */
+  --tw-backdrop-opacity: opacity(1); /* @kind other */
+  --tw-backdrop-saturate: saturate(1); /* @kind other */
+  --tw-backdrop-sepia: sepia(0); /* @kind other */
+  --tw-border-spacing-x: 0; /* @kind other */
+  --tw-border-spacing-y: 0; /* @kind other */
+  --tw-contain-layout: layout; /* @kind other */
+  --tw-contain-paint: paint; /* @kind other */
+  --tw-contain-size: size; /* @kind other */
+  --tw-contain-style: style; /* @kind other */
+  --tw-divide-x-reverse: 0; /* @kind other */
+  --tw-divide-y-reverse: 0; /* @kind other */
+  --tw-space-x-reverse: 0; /* @kind other */
+  --tw-space-y-reverse: 0; /* @kind other */
+  --tw-bg-opacity: 1; /* @kind other */
+  --tw-border-opacity: 1; /* @kind other */
+  --tw-text-opacity: 1; /* @kind other */
+  --tw-ring-opacity: 1; /* @kind other */
+  --tw-content: ""; /* @kind other */
+  --tw-gradient-from: transparent; /* @kind other */
+  --tw-enter-opacity: initial; /* @kind other */
+  --tw-enter-scale: initial; /* @kind other */
+  --tw-enter-rotate: initial; /* @kind other */
+  --tw-enter-translate-x: initial; /* @kind other */
+  --tw-exit-opacity: initial; /* @kind other */
+  --tw-exit-scale: initial; /* @kind other */
+  --tw-exit-rotate: initial; /* @kind other */
+  --tw-exit-translate-x: initial; /* @kind other */
+}
+
+/* Scoped utility-class annotations — re-declares the same values as the bundle
+   with @kind hints so the checker can classify these theme-scoped instances. */
+.gst-rotate-0   { --tw-rotate: 0deg; /* @kind other */ }
+.gst-rotate-90  { --tw-rotate: 90deg; /* @kind other */ }
+.gst-rotate-180 { --tw-rotate: 180deg; /* @kind other */ }
+
+.gst-border-amber-200   { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-black       { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-blue-200    { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-blue-300    { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-blue-500    { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-emerald-500 { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-gray-200    { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-gray-300    { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-green-200   { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-purple-200  { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-purple-300  { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-red-500     { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-slate-200   { --tw-border-opacity: 1; /* @kind other */ }
+.gst-border-yellow-200  { --tw-border-opacity: 1; /* @kind other */ }
+
+.gst-grayscale   { --tw-grayscale: grayscale(100%); /* @kind other */ }
+.gst-grayscale-0 { --tw-grayscale: grayscale(0);    /* @kind other */ }
+
+.gst-backdrop-grayscale   { --tw-backdrop-grayscale: grayscale(100%); /* @kind other */ }
+.gst-backdrop-grayscale-0 { --tw-backdrop-grayscale: grayscale(0);    /* @kind other */ }
+
+.gst-animate-in {
+  --tw-enter-opacity: initial; /* @kind other */
+  --tw-enter-scale: initial;   /* @kind other */
+}
+.gst-fade-in-0  { --tw-enter-opacity: 0;   /* @kind other */ }
+.gst-zoom-in-95 { --tw-enter-scale: 0.95;  /* @kind other */ }

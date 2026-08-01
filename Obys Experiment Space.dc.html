@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden}a{color:#fff}a:hover{color:#fff;opacity:.6}</style></helmet>
+<div ref="{{ stageRef }}" style="position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden">
+  <div ref="{{ wrapRef }}" style="width:1600px;height:900px;transform-origin:center center;flex:none;background:#000">
+    <iframe ref="{{ frameRef }}" src="index.html" title="Obys Experiment Space" style="width:100%;height:100%;border:0;display:block"></iframe>
+  </div>
+  <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:2px;padding:3px;background:rgba(20,20,20,.82);border:1px solid rgba(255,255,255,.14);border-radius:999px;backdrop-filter:blur(8px);z-index:10;font:500 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase">
+      <button type="button" onClick="{{ goHome }}" style="appearance:none;border:0;cursor:pointer;padding:7px 13px;border-radius:999px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:#fff;background:{{ homeBg }}">Index</button>
+      <button type="button" onClick="{{ goAbout }}" style="appearance:none;border:0;cursor:pointer;padding:7px 13px;border-radius:999px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:#fff;background:{{ aboutBg }}">About</button>
+      <span style="width:1px;height:14px;background:rgba(255,255,255,.16);margin:0 4px"></span>
+      <button type="button" onClick="{{ replay }}" style="appearance:none;border:0;cursor:pointer;padding:7px 13px;border-radius:999px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:rgba(255,255,255,.62);background:transparent">Replay</button>
+      <span style="padding:0 11px 0 5px;color:rgba(255,255,255,.34);font:inherit">{{ vpLabel }}</span>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showChrome&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Runner&quot;},&quot;viewportWidth&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1600,&quot;min&quot;:1200,&quot;max&quot;:2560,&quot;step&quot;:40,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Virtual viewport&quot;},&quot;viewportHeight&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:900,&quot;min&quot;:700,&quot;max&quot;:1600,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Virtual viewport&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.stage = React.createRef();
+    this.wrap = React.createRef();
+    this.frame = React.createRef();
+    this.state = { page: 'index.html' };
+  }
+  get vw() { return this.props.viewportWidth ?? 1600; }
+  get vh() { return this.props.viewportHeight ?? 900; }
+  componentDidMount() {
+    this.fit();
+    if (window.ResizeObserver && this.stage.current) {
+      this.ro = new ResizeObserver(() => this.fit());
+      this.ro.observe(this.stage.current);
+    }
+    this.onResize = () => this.fit();
+    window.addEventListener('resize', this.onResize);
+  }
+  componentDidUpdate() { this.fit(); }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+    window.removeEventListener('resize', this.onResize);
+  }
+  fit() {
+    const stage = this.stage.current, wrap = this.wrap.current;
+    if (!stage || !wrap) return;
+    const vw = this.vw, vh = this.vh;
+    const s = Math.min(stage.clientWidth / vw, stage.clientHeight / vh);
+    wrap.style.width = vw + 'px';
+    wrap.style.height = vh + 'px';
+    wrap.style.transform = 'scale(' + s + ')';
+  }
+  go(page) {
+    if (this.frame.current) this.frame.current.src = page;
+    this.setState({ page });
+  }
+  renderVals() {
+    const active = 'rgba(255,255,255,.16)';
+    return {
+      stageRef: this.stage,
+      wrapRef: this.wrap,
+      frameRef: this.frame,
+      showChrome: this.props.showChrome ?? true,
+      homeBg: this.state.page === 'index.html' ? active : 'transparent',
+      aboutBg: this.state.page === 'about.html' ? active : 'transparent',
+      vpLabel: this.vw + '×' + this.vh,
+      goHome: () => this.go('index.html'),
+      goAbout: () => this.go('about.html'),
+      replay: () => this.go(this.state.page)
+    };
+  }
+}
+
+</script>
+</body>
+</html>
