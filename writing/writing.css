@@ -52,3 +52,8 @@ a:focus-visible { outline:2px solid #000; outline-offset:3px; }
   .wr-pns { grid-template-columns:1fr; } .wr-pn:nth-child(2){ text-align:left; }
   .wr-lede { margin-bottom:56px; }
 }
+/* WCAG 2.5.8: keep small text links at least 24px tall */
+.wr-nav .nav-link, .wr-nav .copy-email, .wr-nav .cv-link, .wr-back { display:inline-block; min-height:24px; box-sizing:border-box; padding:4px 0; }
+.wr-nav .nav-underline { margin-top:-6px; }
+.wr-nav .nav-comma, .wr-nav div.local-time { padding-top:4px; box-sizing:border-box; }
+.wr-nav .right-meta { align-items:flex-start; }
