@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Babysitting agents: an agentic workflow with no Figma in the loop — Yair Cohen</title>
+<meta name="description" content="Lately I&#x27;ve been working with a team on an agentic workflow.">
+<meta property="og:title" content="Babysitting agents: an agentic workflow with no Figma in the loop — Yair Cohen"><meta property="og:description" content="Lately I&#x27;ve been working with a team on an agentic workflow.">
+<meta property="og:type" content="article"><meta property="og:image" content="img/tab4-en.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+<link href="../writing/writing.css" rel="stylesheet" type="text/css">
+<link href="../assets/img/6a27d0db13061be14ba10694_Favicon.jpg" rel="icon" type="image/png" sizes="32x32">
+</head><body class="wr-body">
+<header class="wr-nav"><div class="grid"><div class="left-meta"><div class="div-block-12"><div data-page="space" class="nav-link-wrap"><a href="../index.html" class="nav-link">Space</a><div class="nav-underline home"></div></div><div class="nav-comma">,</div><div data-page="about" class="nav-link-wrap"><a href="../about.html" class="nav-link">About</a><div class="nav-underline home"></div></div><div class="nav-comma">,</div><div data-page="writing" class="nav-link-wrap"><a href="../writing.html" aria-current="page" class="nav-link w--current">Writing</a><div class="nav-underline"></div></div></div></div><div class="center-meta"></div><div class="right-meta"><div class="local-time">IDT 10:23 AM</div><a href="https://yair-cohen-cv.vercel.app/" target="_blank" rel="noopener noreferrer" class="local-time cv-link" style="grid-area:1 / 2 / 2 / 3;justify-self:end;text-decoration:none">CV</a><a href="#" class="copy-email">Contact</a></div></div></header>
+<main class="wr-main wr-post"><a class="wr-back" href="../writing.html">← Writing</a><h1 class="wr-h1 wr-post-h1">Babysitting agents: an agentic workflow with no Figma in the loop</h1><p class="wr-meta"><span>Jul 2, 2026</span> · Originally published on <a href="https://www.linkedin.com/in/yairc/" target="_blank" rel="noopener noreferrer">LinkedIn</a> in Hebrew · translated to English</p><figure class="wr-hero"><img src="img/tab4-en.jpg" alt="Loop diagram: Framing, Prototype, Real usable code, Learning from the logs, Improve and optimize"></figure><article class="wr-prose"><p>Lately I've been working with a team on an agentic workflow.</p>
+<p>No Figma in the loop. What is there? A babysitter for agents 👣🍼</p>
+<p><strong>1. It starts with documentation:</strong> Brief, PRD, UX spec. We use BMAD to turn the thinking stage into context that agents can work with.</p>
+<p>The documentation isn't a record of the product work. It is part of the product work itself.</p>
+<p>This is the stage where we try to make intent, taste, strategy, UX, and product decisions more deterministic. Less amorphous. Less dependent on interpretation. Clearer to an agent that has to act from this context without guessing.</p>
+<p>Instead of designing on a canvas, the role moves to that of a director: together with BMAD, we pour the thinking, the decisions, and the problems to be solved into a context layer that agents can run.</p>
+<p>This is documentation for agents, not for developers.</p>
+<p>Its goal isn't to explain to a human what to do, but to narrow the agent's guessing space.</p>
+<p><strong>2. From there we move to Claude Design</strong> to produce a first version of the prototype: not just a sketch, but a working machine. The reason for this step is mainly that Claude Design currently appears to be the strongest on the market at this, after a lot of testing. The design system is connected, but it's still a "simulacrum." The goal is to generate discussion around the prototype, which is much faster and more effective than the traditional method (see: prototype-driven development).</p>
+<p>It's a de-risking process.</p>
+<p><strong>3. The interesting part is the connection between Claude Design and Claude Code</strong>, which recently got a boost from Anthropic.</p>
+<p>The prototype moves to a stage where it's rebuilt with the real code: with tokens, components, rules, and local execution. With the right skills, we end up with a prototype that becomes an artifact developers can use. Not close. Exact.</p>
+<p><strong>4. But the loop that intrigues me most is what happens after the build.</strong></p>
+<p>Over time, the system collects signals from building prototypes: where there was a deviation from the design system, where context was missing, and where the agent had to guess.</p>
+<p><strong>5. From there, an agent runs autonomously</strong>, analyzes recurring patterns, and proposes improvements to the process itself or to the system, all the way to a draft PR that can be reviewed and approved.</p>
+<p>It's still experimental, but it's already proving itself:<br>The prototype isn't just built faster.<br>It also feeds back into the system that builds the next prototype.</p>
+<p><strong>The next step:</strong> stop being the agents' babysitter and build the agentic loop end to end.</p></article><nav class="wr-pns"><a class="wr-pn" href="05-yes-figma-no-figma-lets-set-the-record.html"><span>Newer</span>Yes Figma, no Figma. Let&#x27;s set the record straight.</a><a class="wr-pn" href="03-what-the-agent-doesnt-know-it-makes-up.html"><span>Older</span>What the agent doesn&#x27;t know, it makes up</a></nav></main>
+<script>
+(function(){var t=document.querySelector('.local-time');function u(){var n=new Date(),
+tm=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Jerusalem',hour:'numeric',minute:'2-digit',hour12:true}).format(n),
+o=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Jerusalem',timeZoneName:'shortOffset'}).format(n).split(' ').pop();
+t.textContent=(o==='GMT+3'?'IDT ':'IST ')+tm}u();setInterval(u,1000);
+var E='downstairsgroup@gmail.com';document.querySelectorAll('.copy-email').forEach(function(b){var o=b.textContent;
+b.addEventListener('click',function(e){e.preventDefault();(navigator.clipboard?navigator.clipboard.writeText(E):Promise.reject()).catch(function(){}).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent=o},2000)})})})})();
+</script>
+</body></html>
