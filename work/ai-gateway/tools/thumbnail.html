@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Source for assets/img-b44/custom_13_ai-gateway.png.
+     Render with a local server on :8801:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars \
+       --window-size=1440,1800 --virtual-time-budget=3000 --screenshot=assets/img-b44/custom_13_ai-gateway.png \
+       http://localhost:8801/work/ai-gateway/tools/thumbnail.html -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1440px;height:1800px;background:#050505;overflow:hidden}
+canvas{display:block}
+.t{position:absolute;left:96px;bottom:104px;color:#f4f2ee;font:500 150px/0.92 "Helvetica Neue","Neue Haas Grotesk Display Pro",Arial,sans-serif;letter-spacing:-0.035em}
+.k{position:absolute;left:100px;top:96px;color:rgba(244,242,238,.72);font:400 30px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.02em}
+</style></head><body>
+<canvas id="c" width="1440" height="1800"></canvas>
+<div class="k">POST /v1/messages → policy: fail-closed</div>
+<div class="t">AI<br>Gateway</div>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');
+const W=1440,H=1800;
+// Aurora field (deck palette: amber, rose, lilac, steel blue)
+const blobs=[[260,420,520,'255,190,110',.55],[820,330,560,'240,150,190',.5],[1240,470,520,'150,160,240',.45],[560,640,640,'110,150,210',.42],[1150,760,420,'210,170,120',.25]];
+for(const[bx,by,r,col,a]of blobs){const g=x.createRadialGradient(bx,by,0,bx,by,r);g.addColorStop(0,`rgba(${col},${a})`);g.addColorStop(1,`rgba(${col},0)`);x.fillStyle=g;x.fillRect(0,0,W,H);}
+const fade=x.createLinearGradient(0,0,0,H);fade.addColorStop(0,'rgba(5,5,5,0)');fade.addColorStop(.42,'rgba(5,5,5,.15)');fade.addColorStop(.62,'rgba(5,5,5,.92)');fade.addColorStop(1,'#050505');x.fillStyle=fade;x.fillRect(0,0,W,H);
+// Gate
+const gx=W/2,gy=1010,gw=150,gh=14;
+// Seeded random
+let s=7;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+const N=46;
+for(let i=0;i<N;i++){
+  const sx=-80+(W+160)*(i/(N-1))+(rnd()-.5)*30, sy=180+rnd()*60;
+  const tx=gx+(rnd()-.5)*gw*.8;
+  const blocked=[5,13,22,31,40].includes(i);
+  x.lineWidth=blocked?2.6:1.6;
+  x.strokeStyle=blocked?'rgba(255,92,72,.95)':'rgba(255,255,255,.78)';
+  x.beginPath();x.moveTo(sx,sy);
+  const ey=blocked?gy-40:gy;
+  x.bezierCurveTo(sx,sy+420,tx,ey-360,blocked?tx+(sx-gx)*.08:tx,ey);
+  x.stroke();
+  if(blocked){x.fillStyle='rgba(255,92,72,1)';x.fillRect(tx+(sx-gx)*.08-7,ey-1,14,3);}
+}
+// Outbound to providers
+const P=6;
+for(let j=0;j<P;j++){
+  const ex=240+(W-480)*(j/(P-1));
+  x.strokeStyle='rgba(255,255,255,.9)';x.lineWidth=1.8;
+  x.beginPath();x.moveTo(gx+(j-(P-1)/2)*14,gy+gh);x.bezierCurveTo(gx,gy+260,ex,gy+180,ex,gy+330);x.stroke();
+  x.fillStyle='#050505';x.strokeStyle='rgba(255,255,255,.9)';x.lineWidth=2;
+  x.beginPath();x.roundRect(ex-34,gy+330,68,68,14);x.fill();x.stroke();
+}
+// Gate bar
+x.fillStyle='#f4f2ee';x.fillRect(gx-gw/2-110,gy,110,gh);x.fillRect(gx+gw/2,gy,110,gh);
+x.fillStyle='rgba(244,242,238,.35)';x.fillRect(gx-gw/2,gy+gh/2-1,gw,2);
+// Grain
+const img=x.getImageData(0,0,W,H),d=img.data;
+for(let p=0;p<d.length;p+=4){const n=(rnd()-.5)*26;d[p]+=n;d[p+1]+=n;d[p+2]+=n;}
+x.putImageData(img,0,0);
+</script></body></html>

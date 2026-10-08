@@ -109,6 +109,7 @@ def page(title, desc, prefix, body, current="writing", og=""):
 <header class="wr-nav">{nav(prefix, current)}</header>
 {body}
 {SCRIPT}
+<script src="{prefix}assets/variants.js"></script>
 </body></html>
 """
 

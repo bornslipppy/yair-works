@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/anthropic/", "destination": "/anthropic", "permanent": false },
+    { "source": "/work/ai-gateway", "destination": "/work/ai-gateway/", "permanent": false },
+    { "source": "/work/ai-gateway/prototype", "destination": "/work/ai-gateway/prototype/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/anthropic", "destination": "/index.html" }
+  ]
+}

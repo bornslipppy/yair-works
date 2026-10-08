@@ -1,0 +1,99 @@
+#model-router .mr-failover-canvas{display:flex;flex-direction:column;gap:24px;padding:20px;min-width:0}
+#model-router .mr-failover-section{min-width:0;padding-bottom:20px;border-bottom:1px solid var(--bd)}
+#model-router .mr-failover-section:last-child{border:0;padding-bottom:0}
+#model-router .mr-pair-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+#model-router .mr-pair-head h3,#model-router .mr-pair-head h4{margin:0;font-size:14px;font-weight:500}
+#model-router .mr-pair-flow{display:flex;align-items:center;gap:12px;overflow-x:auto;padding:2px 0 8px}
+#model-router .mr-pair-node{display:flex;flex-direction:column;gap:10px;flex:0 0 220px;min-width:0;padding:16px;background:var(--paper);border:1px solid var(--bd);border-radius:12px}
+#model-router .mr-pair-node>.mr-muted{font-size:12px}
+#model-router .mr-pair-node>.mr-small{color:var(--fg2)}
+#model-router .mr-pair-arrow{flex-shrink:0;color:var(--fg3);font-size:20px}
+#model-router .mr-pair-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+#model-router .mr-pair-fields .mr-field{min-width:0}
+#model-router .mr-pair-fields select{width:100%;min-width:0;text-overflow:clip}
+#model-router .mr-pair-card{padding:16px;border:1px solid var(--bd);border-radius:12px;margin-block:12px;background:var(--paper)}
+#model-router .mr-pair-actions{display:flex;gap:4px}
+#model-router .mr-failover-modes{display:flex;flex-wrap:wrap;gap:8px;margin-block:12px}
+#model-router .mr-failover-modes .mr-choice{flex:1 1 170px;font-size:13px;line-height:18px;min-height:48px}
+#model-router .mr-task-trigger{width:100%;text-align:start}
+#model-router .mr-task-summary{color:var(--fg2);font-size:12px;line-height:18px;margin:8px 0 14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#model-router .mr-task-picker{width:min(700px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--bd);border-radius:16px;background:var(--paper);color:var(--fg)}
+#model-router .mr-task-picker::backdrop{background:#0003}
+#model-router .mr-task-picker .mr-dialog-head{padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+#model-router .mr-task-picker h2{font-size:18px;margin:0}
+#model-router .mr-task-picker-body{display:grid;grid-template-columns:160px minmax(0,1fr);height:min(480px,60dvh);border-block:1px solid var(--bd);min-height:0}
+#model-router .mr-task-categories{padding:12px 8px;border-right:1px solid var(--bd);overflow:auto}
+#model-router .mr-task-categories .mr-picker-type{display:flex;justify-content:space-between;width:100%;gap:6px;padding:10px 8px;font-size:13px}
+#model-router .mr-task-right{display:flex;flex-direction:column;gap:12px;padding:16px;min-height:0;min-width:0}
+#model-router .mr-task-options{overflow:auto;min-height:0}
+#model-router .mr-task-option{display:flex;align-items:center;gap:10px;min-height:38px;padding:6px 8px;font-size:14px;cursor:pointer}
+#model-router .mr-task-option small{margin-left:auto;font-size:11px}
+#model-router .mr-task-option:hover{background:var(--hover);border-radius:6px}
+#model-router .mr-task-select-group{border-bottom:1px solid var(--bd);padding-bottom:10px;margin-bottom:6px}
+#model-router .mr-task-picker .mr-footer{display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:16px 20px}
+#model-router .mr-task-picker .mr-footer>.mr-muted{margin-right:auto;font-size:12px}
+#model-router .mr-recovery-cell>.mr-row-sub{display:block;margin-top:4px}
+#model-router .mr-drawer .mr-failover-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#model-router .mr-drawer .mr-failover-modes .mr-choice{min-width:0;width:100%;white-space:normal;overflow-wrap:break-word;padding:10px;line-height:18px;min-height:60px;border:1px solid var(--bd);border-radius:8px}
+#model-router dialog.mr-task-picker{position:fixed;inset:0;margin:auto;box-sizing:border-box;height:fit-content}
+#model-router .mr-task-categories .mr-picker-type>span:first-child{min-width:0;white-space:normal;text-align:left}
+#model-router .mr-task-categories .mr-picker-type>.mr-muted{flex-shrink:0}
+#model-router .mr-task-picker .mr-search{width:100%;box-sizing:border-box}
+@media(max-width:600px){#model-router .mr-pair-fields{grid-template-columns:1fr}#model-router .mr-task-picker-body{grid-template-columns:118px minmax(0,1fr)}#model-router .mr-task-right{padding:10px}#model-router .mr-task-categories .mr-picker-type{font-size:12px}#model-router .mr-task-option{font-size:12px;gap:6px}#model-router .mr-task-option small{display:none}#model-router .mr-failover-canvas{padding:12px}}
+.mr-family-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+#model-router .mr-head{flex-wrap:wrap;gap:12px}
+#model-router .mr-routing-activity{font-size:12px;line-height:18px;padding:6px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--rail);color:var(--fg2)}
+#model-router .mr-start-label{white-space:normal;line-height:20px}
+/* Drawer composition: one decision at a time, with details on demand. */
+#model-router dialog.mr-drawer{background:var(--paper);backdrop-filter:none}
+#model-router .mr-drawer .mr-editor-body{padding:20px;min-width:0;overflow-x:hidden}
+#model-router .mr-drawer .mr-section h3,#model-router .mr-drawer .mr-section-head h3{font-size:14px;line-height:20px;font-weight:500;margin:0}
+#model-router .mr-drawer .mr-section>h3{margin-bottom:12px}
+#model-router .mr-drawer .mr-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+#model-router .mr-drawer .mr-section-head>.mr-muted{font-size:12px}
+#model-router .mr-drawer .mr-section{margin-bottom:20px;padding-bottom:20px}
+#model-router .mr-drawer .mr-mode-description{margin:10px 0 14px}
+#model-router .mr-drawer .mr-override-row{display:flex;align-items:center;gap:8px;margin-top:14px}
+#model-router .mr-drawer .mr-override-toggle{display:flex;align-items:center;justify-content:space-between;flex:1;margin:0;font-size:13px}
+#model-router .mr-drawer .mr-switch{position:relative;width:32px;height:18px;flex:0 0 32px;border:0;background:var(--bd);border-radius:10px;margin:0}
+#model-router .mr-drawer .mr-switch:has(input:checked){background:var(--fg)}
+#model-router .mr-drawer .mr-switch:after{content:'';position:absolute;left:2px;top:2px;width:14px;height:14px;background:var(--paper);border-radius:50%;pointer-events:none}
+#model-router .mr-drawer .mr-switch:has(input:checked):after{transform:translateX(14px)}
+#model-router .mr-drawer .mr-switch svg{display:none}
+#model-router .mr-drawer .mr-switch input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+#model-router .mr-drawer .mr-switch:has(input:focus-visible){outline:2px solid var(--fg);outline-offset:3px}
+#model-router .mr-drawer details.mr-task-route{margin:0 0 10px;padding:0;border:1px solid var(--bd-sub);border-radius:10px;background:var(--paper);overflow:hidden}
+#model-router .mr-drawer summary.mr-task-route-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 16px;align-items:center;gap:14px;margin:0;padding:14px 16px;font-size:13px;line-height:20px;cursor:pointer;list-style:none}
+#model-router .mr-drawer .mr-task-route-summary::-webkit-details-marker{display:none}
+#model-router .mr-drawer .mr-task-route-summary:hover{background:var(--hover)}
+#model-router .mr-drawer .mr-task-route-copy,#model-router .mr-drawer .mr-task-destination{display:flex;flex-direction:column;gap:3px;min-width:0}
+#model-router .mr-drawer .mr-task-destination .mr-model{font-size:13px;white-space:normal;line-height:20px}
+#model-router .mr-drawer .mr-task-destination>.mr-small{padding-left:24px;font-size:12px;line-height:18px}
+#model-router .mr-drawer .mr-task-route-copy>.mr-small{font-size:12px;line-height:18px}
+#model-router .mr-drawer .mr-route-warning{font-size:12px;line-height:18px;color:var(--danger,#c32720);padding-left:24px}
+#model-router .mr-drawer details[open]>.mr-task-route-summary .mr-disclosure{transform:rotate(180deg)}
+#model-router .mr-drawer .mr-task-route-content{padding:16px;border-top:1px solid var(--bd-sub)}
+#model-router .mr-drawer .mr-task-route-content .mr-pair-head{margin-bottom:10px}
+#model-router .mr-drawer .mr-task-route-content .mr-task-trigger{text-align:left;justify-content:space-between;margin-bottom:14px}
+#model-router .mr-drawer .mr-task-route-content .mr-field{margin-bottom:0}
+#model-router .mr-drawer .mr-task-route-content .mr-pair-head h4{font-size:12px;color:var(--fg2);font-weight:400}
+#model-router .mr-drawer .mr-task-route-content .mr-link{font-size:12px}
+#model-router .mr-drawer .mr-task-rules>.mr-button{margin-top:4px}
+#model-router .mr-drawer .mr-help{font-size:12px;line-height:18px}
+#model-router .mr-drawer .mr-advanced{margin-top:0}
+#model-router .mr-drawer .mr-advanced[open]>.mr-field{margin-top:16px}
+#model-router .mr-drawer .mr-manage-tabs{display:flex;gap:20px;border-bottom:1px solid var(--bd-sub);margin-bottom:20px}
+#model-router .mr-drawer .mr-manage-tabs .mr-tab{padding:0 0 12px;border-radius:0;min-height:32px;font-size:13px}
+#model-router .mr-drawer .mr-manage-tabs .mr-tab[aria-selected=true]{border-bottom:2px solid var(--fg)}
+#model-router .mr-drawer .mr-manage-facts{padding:12px 16px;border-radius:8px;background:var(--hover);margin-bottom:20px}
+#model-router .mr-drawer .mr-manage-facts>div,#model-router .mr-drawer .mr-path-source{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;line-height:20px}
+#model-router .mr-drawer .mr-manage-facts>div+div{margin-top:8px}
+#model-router .mr-drawer .mr-task-type-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;padding:16px;border-top:1px solid var(--bd-sub);font-size:12px;line-height:18px;color:var(--fg2)}
+#model-router .mr-drawer .mr-path-source{padding:12px 0;border-block:1px solid var(--bd-sub);margin:4px 0 16px}
+#model-router .mr-drawer .mr-inspected-path{padding:0 16px;border:1px solid var(--bd-sub);border-radius:10px;margin-bottom:16px}
+#model-router .mr-drawer .mr-inspected-path .mr-route-steps{margin:0;list-style:none;padding:0;display:block}
+#model-router .mr-drawer .mr-inspected-path .mr-route-steps li{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:12px;row-gap:4px;padding:14px 0;font-size:13px}
+#model-router .mr-drawer .mr-inspected-path .mr-route-steps li:before{grid-row:1 / 3}
+#model-router .mr-drawer .mr-inspected-path .mr-step-effort{grid-column:2;display:block;margin:0 0 0 24px;font-size:12px;color:var(--fg2)}
+#model-router .mr-drawer .mr-inspected-path .mr-route-steps li:last-child{border-bottom:0}
+@media(max-width:600px){#model-router .mr-drawer .mr-editor-body{padding:16px}#model-router .mr-drawer summary.mr-task-route-summary{padding:12px;gap:10px;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) 12px}#model-router .mr-drawer .mr-task-type-list{grid-template-columns:1fr}#model-router .mr-drawer .mr-task-route-content{padding:12px}}

@@ -1,0 +1,69 @@
+/* Dimensions and states follow Wonderful's SidebarNav / SidebarLayout. */
+html:has(.ws-shell),body:has(.ws-shell){overflow-x:clip}
+.art.ws-shell{--ws-global-width:200px;--ws-local-width:240px;display:block!important;box-sizing:border-box;max-width:none!important;min-width:0!important;min-height:100dvh!important;padding:8px 8px 8px var(--ws-global-width);background:var(--rail)}
+.art.ws-global-collapsed{--ws-global-width:56px}
+.art.ws-local-hidden{--ws-local-width:0px}
+.ws-shell .artpanel{display:block!important;box-sizing:border-box;margin:0!important;padding-left:var(--ws-local-width);min-height:calc(100dvh - 16px);border-radius:16px!important;min-width:0}
+.ws-shell .artpanel>.pg{box-sizing:border-box;min-width:0;max-width:100%;padding-inline:28px!important}
+.ws-shell .ws-global{box-sizing:border-box;position:fixed;inset:0 auto 0 0;width:var(--ws-global-width);display:flex;flex-direction:column;padding:16px 8px 8px;z-index:35;background:var(--rail);overflow:hidden}
+.ws-brand{height:32px;display:flex;align-items:center;gap:8px;padding:0 8px;margin-bottom:16px;flex-shrink:0}
+.ws-orb{width:24px;height:24px;border-radius:50%;flex-shrink:0;box-shadow:0 2px 5px #0002}
+.ws-wordmark{width:auto;height:16px;max-width:122px}
+:root[data-theme=dark] .ws-wordmark{filter:invert(1)}
+.ws-global-items{display:flex;flex-direction:column;gap:6px;flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin}
+.ws-global-item{box-sizing:border-box;display:flex;align-items:center;gap:8px;min-height:40px;width:100%;flex-shrink:0;padding:0 10px;border:0;border-radius:8px;background:transparent;color:var(--fg2);font:400 14px/20px var(--sans);letter-spacing:-.28px;text-decoration:none;white-space:nowrap;cursor:pointer;text-align:left}
+.ws-global-item svg{flex-shrink:0;width:18px;height:18px}
+.ws-global-item:hover{background:var(--hover);color:var(--fg);text-decoration:none}
+.ws-global-item[aria-current=page]{background:var(--paper);color:var(--fg);box-shadow:0 1px 3px #0000000a,0 0 0 1px #00000003}
+.ws-collapse{margin-top:12px}
+.ws-global-collapsed .ws-global-label,.ws-global-collapsed .ws-wordmark{display:none}
+.ws-global-collapsed .ws-brand{padding-inline:8px}
+.ws-global-collapsed .ws-global-item{justify-content:center;padding-inline:0}
+.ws-shell .ws-secondary{box-sizing:border-box;position:fixed;left:var(--ws-global-width);top:64px;bottom:8px;width:240px;display:flex;flex-direction:column;padding:16px 8px;background:var(--paper);border-right:1px solid var(--bd-sub);border-radius:0 0 0 16px;z-index:20;overflow-y:auto}
+.ws-local-hidden .ws-secondary{display:none}
+.ws-local-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 8px 14px;color:var(--fg);font:500 14px/20px var(--sans)}
+.ws-secondary nav{display:flex;flex-direction:column;gap:2px}
+.ws-shell .ws-secondary .nav{display:flex!important;box-sizing:border-box;width:100%;height:36px;min-height:36px;margin:0!important;padding:8px 10px!important;gap:8px;font:400 14px/20px var(--sans)!important;letter-spacing:-.28px;color:var(--fg2);border:0!important;border-radius:8px;white-space:nowrap;justify-content:flex-start;background:transparent}
+.ws-shell .ws-secondary .nav svg{width:18px;height:18px}
+.ws-shell .ws-secondary .nav:hover,.ws-shell .ws-secondary .nav[data-current]{background:var(--rail)!important;color:var(--fg);box-shadow:none}
+.ws-shell .ws-topbar{position:sticky;top:8px;z-index:60;box-sizing:border-box;height:56px!important;margin-left:calc(-1 * var(--ws-local-width));padding:0 16px!important;gap:12px!important;border-radius:16px 16px 0 0;background:var(--paper)}
+.ws-icon-button{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:28px;height:28px;padding:4px;border:0;border-radius:6px;background:transparent;color:var(--fg2);cursor:pointer}
+.ws-icon-button:hover{background:var(--rail);color:var(--fg)}
+.ws-product-crumb{padding:0;border:0;background:none;font:400 14px/20px var(--sans);color:var(--fg2);cursor:pointer;white-space:nowrap}
+.ws-product-crumb:hover{color:var(--fg)}
+.ws-topbar>[class^="crumb-"]{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ws-mobile-menu{display:none}
+.ws-backdrop{position:fixed;inset:0;background:rgb(20 20 20 / 20%);border:0;z-index:80;cursor:pointer}
+.ws-shell :is(a,button):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ws-canvas-narrow .artpanel>.pg{padding-inline:20px!important}
+.ws-canvas-narrow :is(.pghd,.gnbar,.ovhdwrap,.tasks-toolbar){flex-wrap:wrap}
+.ws-canvas-small .artpanel>.pg{padding-inline:16px!important}
+.ws-canvas-small .ws-topbar{gap:8px!important;padding-inline:12px!important}
+.ws-canvas-small .ws-topbar>div:last-child{gap:4px!important}
+.ws-global-destination .artpanel>.pg,.ws-global-destination .ws-topbar>[class^="crumb-"],.ws-global-destination .ws-crumb-divider{display:none!important}
+.ws-product-crumb:disabled{cursor:default;opacity:1}
+.ws-global-page{padding:28px;max-width:720px;min-height:60vh}
+.ws-global-page h1{font:500 24px/32px var(--sans);margin:0 0 16px}
+.ws-global-page p{font:400 14px/22px var(--sans);color:var(--fg2);margin-bottom:24px}
+.ws-global-page>div{display:flex;flex-wrap:wrap;gap:12px}
+/* Page controls stay below chrome; dialogs/popovers retain their existing layers. */
+.ws-shell .tasks-controls{z-index:10}
+@media(max-width:600px){
+ #vkd .vksteps{grid-template-columns:1fr;gap:4px}
+ #vkd .vkstep{justify-content:flex-start;height:32px;white-space:normal;overflow:visible;padding:4px 8px}
+ #vkd .vkstep>span:last-child{line-height:18px}
+}
+@media(max-width:760px){
+ .art.ws-shell{--ws-global-width:0px;--ws-local-width:0px;padding:0;min-height:100dvh!important}
+ .ws-shell .artpanel{border-radius:0!important;min-height:100dvh}
+ .ws-shell .ws-topbar{top:0;border-radius:0}
+ .ws-mobile-menu{display:inline-flex}
+ .ws-shell .ws-global{display:none;width:280px;z-index:85;padding-top:16px}
+ .ws-shell.ws-global-open .ws-global{display:flex}
+ .ws-shell .ws-secondary{left:0;top:56px;bottom:0;width:240px;z-index:85;border-radius:0}
+ .ws-shell .ws-global-label,.ws-shell .ws-wordmark{display:block}
+ .ws-shell .ws-global-item{justify-content:flex-start;padding-inline:10px}
+ .ws-navigation-open{overflow:hidden}
+ .ws-canvas-small .ws-topbar #jsbell{display:none}
+ .ws-canvas-small .ws-topbar>div:last-child>div:not(:last-child){display:none}
+}

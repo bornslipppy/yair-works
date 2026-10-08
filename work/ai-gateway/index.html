@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Gateway — Wonderful | Case Study</title>
+<meta name="description" content="Designing the control layer every enterprise AI request passes through: guardrails, spend limits, model access and routing for Wonderful AI Gateway.">
+<meta property="og:title" content="AI Gateway — Wonderful | Case Study">
+<meta property="og:description" content="Designing the control layer every enterprise AI request passes through.">
+<meta property="og:image" content="/work/ai-gateway/img/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/6a27d0db13061be14ba10694_Favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f2ee; --ink:#141414; --mute:#6b6a66; --line:#d9d7d1; --dark:#0a0a0a;
+  --sans:"Helvetica Neue","Neue Haas Grotesk Display Pro",Helvetica,Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --gut:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gut);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);font-size:13px}
+.top a{text-decoration:none;min-height:24px;display:inline-flex;align-items:center}
+.top a:hover{text-decoration:underline;text-underline-offset:3px}
+.top .mid{color:var(--mute)}
+
+header.hero{padding:clamp(48px,9vw,120px) var(--gut) 40px;display:grid;gap:40px}
+h1{margin:0;font-weight:500;font-size:clamp(48px,9vw,128px);line-height:.92;letter-spacing:-.035em}
+h1 em{display:block;font-size:.9em}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;max-width:980px;font-size:13px}
+.meta dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.meta dd{margin:0;line-height:1.45}
+.meta a{text-underline-offset:3px}
+
+.stage{margin:0 var(--gut);background:var(--dark);border-radius:6px;overflow:hidden;position:relative;aspect-ratio:16/9}
+.stage img,.stage video{width:100%;height:100%;object-fit:cover}
+.stage .soon{position:absolute;left:24px;bottom:22px;color:#f3f2ee;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+
+main{padding:0 var(--gut)}
+.lede,.prose{max-width:1040px}
+.lede{margin:clamp(56px,8vw,112px) 0;font-size:clamp(22px,2.6vw,36px);line-height:1.22;letter-spacing:-.015em}
+.lede p{margin:0 0 .8em}
+section.chap{border-top:1px solid var(--line);padding:28px 0 clamp(48px,7vw,96px);display:grid;grid-template-columns:minmax(140px,1fr) 3fr;gap:24px 40px}
+.label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:6px}
+.prose{font-size:clamp(18px,1.7vw,24px);line-height:1.38;letter-spacing:-.01em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.prose strong{font-weight:500}
+figure{margin:40px 0 0}
+figure.wide{grid-column:1 / -1}
+figure img{width:100%;border-radius:6px;background:#e7e5df}
+figcaption{margin-top:10px;font-size:13px;color:var(--mute);max-width:720px;line-height:1.45}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.choices{list-style:none;margin:0;padding:0;counter-reset:c}
+.choices li{padding:22px 0;border-bottom:1px solid var(--line)}
+.choices li:first-child{padding-top:0}
+.choices h3{margin:0 0 8px;font-size:clamp(20px,2vw,28px);font-weight:500;letter-spacing:-.015em}
+.choices p{margin:0;color:#2b2a28}
+
+.todo{background:#fff4c2;outline:1px dashed #b8930f;padding:2px 6px;border-radius:3px}
+
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-size:14px}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:hover{opacity:.85}
+
+footer{padding:56px var(--gut) 72px;border-top:1px solid var(--line);margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px}
+footer a{min-height:24px;display:inline-flex;align-items:center;text-underline-offset:3px}
+
+@media (max-width:760px){
+  section.chap{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr}
+  .top .mid{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Site">
+  <a href="/" data-yw-home>← Yair Cohen</a>
+  <span class="mid">AI Gateway <em>Wonderful</em></span>
+  <a href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Open prototype ↗</a>
+</nav>
+
+<header class="hero">
+  <h1>AI Gateway <em>Wonderful</em></h1>
+  <dl class="meta">
+    <div><dt>Role</dt><dd>Product Designer, end-to-end <!-- TODO(yair): confirm title --></dd></div>
+    <div><dt>Scope</dt><dd>0→1 product · Vision, IA, interaction, code prototype</dd></div>
+    <div><dt>Year</dt><dd>2026</dd></div>
+    <div><dt>Links</dt><dd><a href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Live prototype</a> · <a href="https://www.wonderful.ai/ai-gateway" target="_blank" rel="noopener">Product page</a></dd></div>
+  </dl>
+</header>
+
+<!-- VIDEO: replace the <img> below with
+     <video src="/work/ai-gateway/video/walkthrough.mp4" poster="/work/ai-gateway/img/cover.jpg" controls playsinline preload="metadata"></video>
+     and delete the .soon label. -->
+<div class="stage">
+  <img src="/work/ai-gateway/img/cover.jpg" alt="Wonderful AI Gateway — the control center for enterprise AI" width="1920" height="1080">
+  <span class="soon">Walkthrough video coming soon</span>
+</div>
+
+<main>
+  <div class="lede">
+    <p>Every enterprise now runs on a dozen AI tools — coding agents, copilots, internal agents — each with its own keys, bills and blind spots. Wonderful AI Gateway is the single layer every one of those requests passes through, on its way to Anthropic, OpenAI, Google and the rest.</p>
+    <p>I designed the product from the first brief to a working, tested prototype: the place where an organisation decides <em>who may use which model, how much, for what — and what happens when a request crosses the line.</em></p>
+  </div>
+
+  <section class="chap">
+    <div class="label">The problem</div>
+    <div class="prose">
+      <p>AI usage was outpacing AI control. Teams adopted tools independently, so nobody could answer basic questions: which team spent the most last month, what employees were pasting into prompts, whether we could prove who accessed what if an auditor asked.</p>
+      <p>The obvious answer — a spend dashboard — would only have described the damage after it happened. A gateway sits <em>in the path</em> of every request. That makes it an enforcement point, not a report, and it changed what the product had to be.</p>
+    </div>
+    <figure class="wide">
+      <img src="/work/ai-gateway/img/problem.jpg" alt="Six failure modes: no visibility into spend, no link to value, cost explosion, compliance failure, governance failures, security vulnerabilities" loading="lazy" width="1920" height="1080">
+      <figcaption>The six questions every admin we spoke to could not answer.</figcaption>
+    </figure>
+  </section>
+
+  <section class="chap">
+    <div class="label">The reframe</div>
+    <div class="prose">
+      <p>I organised the product around one object: <strong>the request</strong>. Every surface answers a question about it — who sent it (Usage), whether it was allowed (Model access), whether it was safe (Governance), whether it was affordable (Spend limits), and where it should go (Model router).</p>
+      <p>Policy is authored once and enforced before the request leaves the perimeter. Analytics exist to explain enforcement, not to replace it.</p>
+    </div>
+    <figure class="wide">
+      <img src="/work/ai-gateway/img/how-it-works.jpg" alt="Diagram: AI agents and apps on the left connect through Wonderful AI Gateway's control, governance, optimisation and observability layers to model providers on the right" loading="lazy" width="1920" height="1080">
+    </figure>
+  </section>
+
+  <section class="chap">
+    <div class="label">Decisive choices</div>
+    <div class="prose">
+      <ol class="choices">
+        <li>
+          <h3>Guardrails that fail closed — with a graded response</h3>
+          <p>A safety control that only knows "block" gets switched off the first time it blocks the CFO. Each policy declares what it detects (a pattern or a described topic) and what happens on a match: <strong>Block</strong>, <strong>Warn</strong>, or reroute. Credentials are blocked outright; personal and health identifiers warn and redact. Wonderful-maintained defaults ship on, and admins add their own beside them rather than editing ours.</p>
+        </li>
+        <li>
+          <h3>A cap is a ceiling, not an allocation</h3>
+          <p>The most consequential misreading in the product: an admin sets a $3,000 cap for premium models under a $5,000 limit and believes the other $2,000 is now "reserved" for everything else. It isn't. I designed the rule editor, its summary and its validation so the consequence of a rule is legible <em>before</em> save — who it governs, what it limits, and exactly what happens at the limit.</p>
+        </li>
+        <li>
+          <h3>Degrade, don't break</h3>
+          <p>Hitting a limit or a provider outage shouldn't stop someone's work mid-task. Rules can move eligible requests to a lower-cost model instead of blocking, and failover chains reroute automatically when a provider goes down. Safety and continuity stop being a trade-off.</p>
+        </li>
+        <li>
+          <h3>Never flag spend in isolation</h3>
+          <p>Two engineers can each spend $27K in a month — one shipped an internal CRM, the other shipped nothing. An alert that treats them the same teaches people to ignore alerts. I killed an early "Insights" surface that did exactly that, and moved toward pairing burn with return: what the inference was <em>for</em>.</p>
+        </li>
+        <li>
+          <h3>Reversible by default</h3>
+          <p>Access changes ripple across hundreds of people. Bulk edits list every affected model and audience before confirming, and every save offers Undo. Admins act faster when mistakes are cheap.</p>
+        </li>
+      </ol>
+    </div>
+    <figure class="wide">
+      <img src="/work/ai-gateway/img/ui-governance.jpg" alt="Governance page: policies for credentials and keys (Block), credentials written inline, personal identifiers, health identifiers, sensitive data in prompts and misuse of the assistant (Warn), with match counts and on/off toggles" loading="lazy" width="2400" height="1500">
+      <figcaption>Governance. Each policy pairs a detector with a consequence; matches are counted so admins can tune before they tighten.</figcaption>
+    </figure>
+    <figure class="wide pair">
+      <img src="/work/ai-gateway/img/ui-spend-limits.jpg" alt="Spend limits overview: alerts for users near their limit and pending budget requests, overall budget allocation, organisation and default limits" loading="lazy" width="2400" height="1500">
+      <img src="/work/ai-gateway/img/ui-model-router.jpg" alt="Model router: failover chains from Claude Sonnet 5 to GPT-5.1 to Gemini 3 Pro, and from Claude Opus 5 to Sonnet 5 to Haiku 4.5" loading="lazy" width="2400" height="1500">
+    </figure>
+    <figure class="wide pair">
+      <img src="/work/ai-gateway/img/ui-model-access.jpg" alt="Model access: providers on the left, per-model toggles and audience scopes on the right" loading="lazy" width="2400" height="1500">
+      <img src="/work/ai-gateway/img/ui-usage.jpg" alt="Usage breakdown by group with month-to-date spend, previous spend and change" loading="lazy" width="2400" height="1500">
+      <figcaption>Spend limits, failover chains, model access by audience, and usage broken down to the request. All screens from the live prototype; people and data are fictional.</figcaption>
+    </figure>
+  </section>
+
+  <section class="chap">
+    <div class="label">How I worked</div>
+    <div class="prose">
+      <p>No static mockups. I built the product as a working front-end prototype across eight surfaces, so engineering, sales and customers reacted to real behaviour — filters that compose, rules that validate, limits that expire.</p>
+      <p>I wrote briefs as outcomes and constraints rather than screens, then held the prototype to them with an automated suite: <strong>57 tests</strong>, including <strong>5,110 accounting reconciliations</strong> that check every filtered total still adds up. A navigation review reproduced each issue with exact steps before anything was fixed.</p>
+      <div class="cta">
+        <a class="btn solid" href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Try the prototype ↗</a>
+        <a class="btn" href="https://www.wonderful.ai/ai-gateway" target="_blank" rel="noopener">wonderful.ai/ai-gateway ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chap">
+    <div class="label">What I didn't build</div>
+    <div class="prose">
+      <p>No shared group wallets — limits govern each person, so one heavy user can't drain a team. No reserved budget slices, and no artificial "remainder" maths. No throttling, which hid limits instead of explaining them. Each was requested; each would have made the policy harder to predict. A safeguard people can't predict is a safeguard they route around.</p>
+    </div>
+  </section>
+
+  <section class="chap">
+    <div class="label">Outcome</div>
+    <div class="prose">
+      <p><span class="todo">TODO(yair): impact — e.g. customers or pilots live, spend brought under policy, time to first rule, policy matches caught.</span></p>
+      <p>Wonderful AI Gateway is live as part of the Wonderful AI OS.</p>
+    </div>
+    <figure class="wide">
+      <img src="/work/ai-gateway/img/spend-to-value.jpg" alt="Wonderful Agents connect natively to the AI Gateway so every request carries business context: know what inference is for, govern with business context, optimise continuously" loading="lazy" width="1920" height="1080">
+    </figure>
+  </section>
+</main>
+
+<footer>
+  <a href="/" data-yw-home>← Back to all work</a>
+  <span>Yair Cohen · 2026</span>
+</footer>
+
+<script src="/assets/variants.js"></script>
+</body>
+</html>
