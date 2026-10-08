@@ -52,9 +52,9 @@ em{font-family:Items,serif;font-style:italic}
 .info strong{font-weight:400;opacity:.5;text-transform:uppercase}
 .media{border-radius:20px;overflow:hidden;background:#e6e2dc}
 .media video,.media img{width:100%;height:auto}
-/* Ink stage so white UI does not sit directly on the warm page */
-.plate{background:#111;border-radius:20px;padding:clamp(20px,4.5%,56px)}
-.plate img{width:100%;height:auto;border-radius:8px}
+/* Ink stage: dark UI sits on black so it reads as a framed image on the warm page */
+.plate{background:#000;border-radius:20px;overflow:hidden}
+.plate img{width:100%;height:auto}
 
 /* Sticky running title */
 .titleBar{position:sticky;top:-22px;z-index:9;display:flex;padding:30px 15px;pointer-events:none}
@@ -121,7 +121,7 @@ em{font-family:Items,serif;font-style:italic}
         <span class="label">The Problem</span>
         <p>AI usage was outpacing AI control. No one could say which team spent most, what was being pasted into prompts, or who accessed what. A dashboard would only describe the damage afterwards; a gateway sits in the path of every request. So I designed it as an enforcement point, not a report — policy authored once, applied before a request leaves the building.</p>
       </div></div>
-      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-governance.jpg" alt="Governance: policies for credentials, personal and health identifiers and sensitive prompts, each set to Block or Warn" width="2400" height="1500" loading="lazy"></div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/activity-logs.webp" alt="Activity logs: every agent run with its developer, model, cost, last activity and status" width="2000" height="907" loading="lazy"></div></div>
     </div>
   </div>
   <div class="row">
@@ -132,7 +132,7 @@ em{font-family:Items,serif;font-style:italic}
         <p>A cap is a ceiling, not an allocation. A $3,000 model cap under a $5,000 limit reserves nothing. The rule editor makes that consequence legible <em>before</em> save.</p>
         <p>Degrade, don’t break. At a limit or an outage, requests move to a cheaper or fallback model instead of stopping work.</p>
       </div></div>
-      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-spend-limits.jpg" alt="Spend limits: users near their limit, pending budget requests, overall allocation and default limits" width="2400" height="1500" loading="lazy"></div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/policies.webp" alt="Policies: credentials and keys set to Block; credentials inline, personal and health identifiers, sensitive data and misuse set to Warn, with match counts" width="2000" height="907" loading="lazy"></div></div>
     </div>
   </div>
   <div class="row">
@@ -141,7 +141,7 @@ em{font-family:Items,serif;font-style:italic}
         <span class="label">How I Worked</span>
         <p>No static mockups. I built the product with Claude Code as a working prototype across eight surfaces, held to its briefs by 57 automated tests — including 5,110 reconciliations that check every filtered total still adds up. <a href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Try the prototype</a>.</p>
       </div></div>
-      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-model-router.jpg" alt="Model router: failover chains across Claude, GPT and Gemini models" width="2400" height="1500" loading="lazy"></div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/model-access.webp" alt="Model access: providers with connection status on the left, Anthropic models with per-team access toggles on the right" width="2000" height="879" loading="lazy"></div></div>
     </div>
   </div>
   <div class="row">
@@ -151,7 +151,7 @@ em{font-family:Items,serif;font-style:italic}
         <p>Wonderful runs on its own gateway with 100% internal adoption, which led to a successful customer pilot and signed contracts. It’s live as part of the <a href="https://www.wonderful.ai/ai-gateway" target="_blank" rel="noopener">Wonderful AI OS</a>.</p>
         <p>What I left out mattered as much: no shared group wallets, reserved budget slices or throttling. Each was requested, and each made policy harder to predict. A safeguard people can’t predict is one they route around.</p>
       </div></div>
-      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-overview.jpg" alt="Overview: total spend, projection, annual run rate and daily spend chart" width="2400" height="1500" loading="lazy"></div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/failover.webp" alt="Failover chain: Claude Opus 5 as the starting model, falling back to Gemini 3 Pro, then GPT-5.6 Sol" width="2000" height="587" loading="lazy"></div></div>
     </div>
   </div>
 </main>
