@@ -17,7 +17,7 @@
         title: 'AI Gateway [Wonderful] / 2026',
         desc: 'The control layer every enterprise AI request passes through. I designed guardrails that fail closed, spend limits, model access and failover routing, then built them with Claude Code as a working, tested prototype across eight surfaces.',
         problem: 'AI usage was outpacing AI control. Teams adopted tools independently, leaving no single place to see spend, enforce access, or stop sensitive data from reaching a model provider.',
-        impact: 'TODO(yair): impact line.',
+        impact: '100% internal adoption dogfooding at Wonderful · successful customer pilot · signed contracts with prospective customers.',
         link: '/work/ai-gateway/',
         linklabel: 'Case Study',
         link2: '/work/ai-gateway/prototype/',
