@@ -52,6 +52,9 @@ em{font-family:Items,serif;font-style:italic}
 .info strong{font-weight:400;opacity:.5;text-transform:uppercase}
 .media{border-radius:20px;overflow:hidden;background:#e6e2dc}
 .media video,.media img{width:100%;height:auto}
+/* Ink stage so white UI does not sit directly on the warm page */
+.plate{background:#111;border-radius:20px;padding:clamp(20px,4.5%,56px)}
+.plate img{width:100%;height:auto;border-radius:8px}
 
 /* Sticky running title */
 .titleBar{position:sticky;top:-22px;z-index:9;display:flex;padding:30px 15px;pointer-events:none}
@@ -94,6 +97,7 @@ em{font-family:Items,serif;font-style:italic}
     <div class="info">
       <div><strong>Role</strong><span>Principal Product Designer</span></div>
       <div><strong>Scope</strong><span>0→1 Vision + Code Prototype</span></div>
+      <div><strong>Outcome</strong><span>100% internal adoption · Signed customers</span></div>
       <div><strong>Prototype</strong><a href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Open ↗</a></div>
     </div>
   </div>
@@ -108,77 +112,46 @@ em{font-family:Items,serif;font-style:italic}
 
 <main>
   <div class="lede">
-    <p>Every enterprise now runs on a dozen AI tools — coding agents, copilots, internal agents — each with its own keys, bills and blind spots. Wonderful AI Gateway is the single layer every one of those requests passes through on its way to Anthropic, OpenAI, Google and the rest.</p>
-    <p>As Principal Product Designer, I took it from first brief to a working, tested prototype built with Claude Code: the place where an organisation decides <em>who may use which model, how much, for what</em> — and what happens when a request crosses the line.</p>
+    <p>Every enterprise now runs a dozen AI tools, each with its own keys, bills and blind spots. Wonderful AI Gateway is the one layer every request passes through — where an organisation decides <em>who may use which model, how much, and for what.</em></p>
   </div>
 
   <div class="row">
     <div class="inner">
       <div class="text"><div>
         <span class="label">The Problem</span>
-        <p>AI usage was outpacing AI control. Teams adopted tools independently, so nobody could answer basic questions: which team spent the most last month, what employees were pasting into prompts, whether we could prove who accessed what if an auditor asked. A spend dashboard would only have described the damage after it happened. A gateway sits in the path of every request — that makes it an enforcement point, not a report, and it changed what the product had to be.</p>
+        <p>AI usage was outpacing AI control. No one could say which team spent most, what was being pasted into prompts, or who accessed what. A dashboard would only describe the damage afterwards; a gateway sits in the path of every request. So I designed it as an enforcement point, not a report — policy authored once, applied before a request leaves the building.</p>
       </div></div>
-      <div class="side"><div class="media">
-        <img src="/work/ai-gateway/img/ui-overview.jpg" alt="Overview: total spend, projected spend, annual run rate and average daily spend above a daily spend chart" width="2400" height="1500" loading="lazy">
-      </div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-governance.jpg" alt="Governance: policies for credentials, personal and health identifiers and sensitive prompts, each set to Block or Warn" width="2400" height="1500" loading="lazy"></div></div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="inner">
-      <div class="text"><div>
-        <span class="label">The Reframe</span>
-        <p>I organised the product around one object: the request. Every surface answers a question about it — who sent it, whether it was allowed, whether it was safe, whether it was affordable, and where it should go. Policy is authored once and enforced before the request leaves the perimeter; analytics exist to explain enforcement, not to replace it.</p>
-      </div></div>
-      <div class="side"><div class="media">
-        <img src="/work/ai-gateway/img/ui-governance.jpg" alt="Governance: policies for credentials and keys (Block), credentials written inline, personal identifiers, health identifiers, sensitive data in prompts and misuse of the assistant (Warn), with match counts and toggles" width="2400" height="1500" loading="lazy">
-      </div></div>
-    </div>
-  </div>
-
   <div class="row">
     <div class="inner">
       <div class="text"><div>
         <span class="label">The Decisive Choices</span>
-        <p>Guardrails that fail closed, with a graded response. A control that only knows “block” gets switched off the first time it blocks the CFO, so every policy pairs a detector with a consequence — block, warn, or reroute — and Wonderful’s defaults ship on, beside the admin’s own.</p>
-        <p>A cap is a ceiling, not an allocation. The most consequential misreading in the product: a $3,000 cap on premium models under a $5,000 limit does not reserve the other $2,000. The rule editor, its summary and its validation make the consequence of a rule legible <em>before</em> save.</p>
-        <p>Degrade, don’t break. Hitting a limit or a provider outage shouldn’t stop work mid-task: rules can move requests to a lower-cost model, and failover chains reroute when a provider goes down. Safety and continuity stop being a trade-off.</p>
+        <p>Guardrails fail closed, with a graded response. A control that only knows “block” gets switched off, so every policy pairs a detector with a consequence: block, warn or reroute.</p>
+        <p>A cap is a ceiling, not an allocation. A $3,000 model cap under a $5,000 limit reserves nothing. The rule editor makes that consequence legible <em>before</em> save.</p>
+        <p>Degrade, don’t break. At a limit or an outage, requests move to a cheaper or fallback model instead of stopping work.</p>
       </div></div>
-      <div class="side"><div class="media">
-        <img src="/work/ai-gateway/img/ui-spend-limits.jpg" alt="Spend limits: alerts for users near their limit and pending budget requests, overall budget allocation, organisation and default limits" width="2400" height="1500" loading="lazy">
-      </div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-spend-limits.jpg" alt="Spend limits: users near their limit, pending budget requests, overall allocation and default limits" width="2400" height="1500" loading="lazy"></div></div>
     </div>
   </div>
-
   <div class="row">
     <div class="inner">
       <div class="text"><div>
         <span class="label">How I Worked</span>
-        <p>No static mockups. I built the product with Claude Code as a working front-end prototype across eight surfaces, so engineering, sales and customers reacted to real behaviour — filters that compose, rules that validate, limits that expire. Briefs were written as outcomes and constraints rather than screens, and the prototype was held to them by 57 automated tests, including 5,110 accounting reconciliations that check every filtered total still adds up. <a href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Try the prototype</a>.</p>
+        <p>No static mockups. I built the product with Claude Code as a working prototype across eight surfaces, held to its briefs by 57 automated tests — including 5,110 reconciliations that check every filtered total still adds up. <a href="/work/ai-gateway/prototype/" target="_blank" rel="noopener">Try the prototype</a>.</p>
       </div></div>
-      <div class="side"><div class="media">
-        <img src="/work/ai-gateway/img/ui-model-router.jpg" alt="Model router: failover chains from Claude Sonnet 5 to GPT-5.1 to Gemini 3 Pro, and from Claude Opus 5 to Sonnet 5 to Haiku 4.5" width="2400" height="1500" loading="lazy">
-      </div></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-model-router.jpg" alt="Model router: failover chains across Claude, GPT and Gemini models" width="2400" height="1500" loading="lazy"></div></div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="inner">
-      <div class="text"><div>
-        <span class="label">What I Didn’t Build</span>
-        <p>No shared group wallets — limits govern each person, so one heavy user can’t drain a team. No reserved budget slices. No throttling, which hid limits instead of explaining them. And no alert that flags spend in isolation: two engineers can each spend $27K in a month, one shipping an internal CRM and the other nothing. Each was requested; each would have made policy harder to predict. A safeguard people can’t predict is a safeguard they route around.</p>
-      </div></div>
-      <div class="side"></div>
-    </div>
-  </div>
-
   <div class="row">
     <div class="inner">
       <div class="text"><div>
         <span class="label">The Outcome</span>
-        <p>Wonderful runs on its own gateway — dogfooded internally with 100% adoption, which made us its first and harshest customer. From there, a successful customer pilot and signed contracts with prospective customers. Wonderful AI Gateway is live as part of the <a href="https://www.wonderful.ai/ai-gateway" target="_blank" rel="noopener">Wonderful AI OS</a>.</p>
+        <p>Wonderful runs on its own gateway with 100% internal adoption, which led to a successful customer pilot and signed contracts. It’s live as part of the <a href="https://www.wonderful.ai/ai-gateway" target="_blank" rel="noopener">Wonderful AI OS</a>.</p>
+        <p>What I left out mattered as much: no shared group wallets, reserved budget slices or throttling. Each was requested, and each made policy harder to predict. A safeguard people can’t predict is one they route around.</p>
       </div></div>
-      <div class="side"></div>
+      <div class="side"><div class="plate"><img src="/work/ai-gateway/img/ui-overview.jpg" alt="Overview: total spend, projection, annual run rate and daily spend chart" width="2400" height="1500" loading="lazy"></div></div>
     </div>
   </div>
 </main>
