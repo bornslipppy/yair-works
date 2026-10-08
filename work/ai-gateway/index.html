@@ -42,7 +42,6 @@ h1 em{display:block;font-size:.9em}
 
 .stage{margin:0 var(--gut);background:var(--dark);border-radius:6px;overflow:hidden;position:relative;aspect-ratio:16/9}
 .stage img,.stage video{width:100%;height:100%;object-fit:cover}
-.stage .soon{position:absolute;left:24px;bottom:22px;color:#f3f2ee;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
 
 main{padding:0 var(--gut)}
 .lede,.prose{max-width:1040px}
@@ -100,12 +99,8 @@ footer a{min-height:24px;display:inline-flex;align-items:center;text-underline-o
   </dl>
 </header>
 
-<!-- VIDEO: replace the <img> below with
-     <video src="/work/ai-gateway/video/walkthrough.mp4" poster="/work/ai-gateway/img/cover.jpg" controls playsinline preload="metadata"></video>
-     and delete the .soon label. -->
 <div class="stage">
-  <img src="/work/ai-gateway/img/cover.jpg" alt="Wonderful AI Gateway — the control center for enterprise AI" width="1920" height="1080">
-  <span class="soon">Walkthrough video coming soon</span>
+  <video src="/work/ai-gateway/video/walkthrough.mp4" poster="/work/ai-gateway/video/poster.jpg" controls playsinline preload="metadata" aria-label="Walkthrough of the AI Gateway prototype: overview, usage, spend limits, governance, model access and model router"></video>
 </div>
 
 <main>
